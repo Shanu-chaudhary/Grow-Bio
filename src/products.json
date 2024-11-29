@@ -1,0 +1,63 @@
+[
+    {
+      "id": 1,
+      "title": "Organic Compost",
+      "description": "A nutrient-rich compost perfect for your garden's health.",
+      "image": "https://via.placeholder.com/150/92c952"
+    },
+    {
+      "id": 2,
+      "title": "Cow Manure Fertilizer",
+      "description": "An all-natural fertilizer that improves soil fertility.",
+      "image": "https://via.placeholder.com/150/771796"
+    },
+    {
+      "id": 3,
+      "title": "Vermicompost",
+      "description": "High-quality worm compost for superior plant growth.",
+      "image": "https://via.placeholder.com/150/24f355"
+    },
+    {
+      "id": 4,
+      "title": "Bone Meal Fertilizer",
+      "description": "Phosphorus-rich organic fertilizer for blooming plants.",
+      "image": "https://via.placeholder.com/150/d32776"
+    },
+    {
+      "id": 5,
+      "title": "Neem Cake Fertilizer",
+      "description": "Organic pest-repellent fertilizer for healthier crops.",
+      "image": "https://via.placeholder.com/150/f66b97"
+    },
+    {
+      "id": 6,
+      "title": "Seaweed Extract",
+      "description": "Natural seaweed fertilizer for enhanced root growth.",
+      "image": "https://via.placeholder.com/150/56a8c2"
+    },
+    {
+      "id": 7,
+      "title": "Poultry Manure",
+      "description": "Organic manure sourced from poultry farms.",
+      "image": "https://via.placeholder.com/150/b0f7cc"
+    },
+    {
+      "id": 8,
+      "title": "Coco Peat",
+      "description": "Eco-friendly soil conditioner for better water retention.",
+      "image": "https://via.placeholder.com/150/54176f"
+    },
+    {
+      "id": 9,
+      "title": "Rock Phosphate",
+      "description": "Mineral fertilizer for long-lasting soil improvement.",
+      "image": "https://via.placeholder.com/150/51aa97"
+    },
+    {
+      "id": 10,
+      "title": "Humic Acid",
+      "description": "Organic soil additive for improved nutrient absorption.",
+      "image": "https://via.placeholder.com/150/810b14"
+    }
+  ]
+  
