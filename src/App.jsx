@@ -1,16 +1,14 @@
-import { useGSAP } from '@gsap/react'
-import gsap from 'gsap'
-import React, { useRef } from 'react'
+import React, {  } from 'react'
 import Navbar from './components/Navbar'
 import About from './pages/About'
 import Home from './pages/Home'
 import Mission  from './pages/Mission'
 import Product from './pages/products'
-import Contact from './pages/Contact'
+import Contact from './pages/ContactUs'
 import { Routes } from 'react-router-dom'
 import { Route } from 'react-router-dom'
 import Footer from './components/Footer'
-// #f3f5f5
+import ScrollToTop from './components/ScrollToTop'
 const App = () => {
   
   // const gsapRef = useRef()
@@ -37,22 +35,10 @@ const App = () => {
 // })
 
   return (
-    // <>
-    // <Navbar/>
-    
-    // <Routes>
-    //   <Route path='/' element ={<Home/>}/>
-    //   <Route path='/contact' element ={<Contact/>}/>
-    //   <Route path='/products' element ={<Product/>}/>
-    //   <Route path='/about' element ={<About/>}/>
-    //   <Route path='/career' element ={<Career/>}/>
-    // </Routes>
-    // <Footer/>
-    // </>
-
     <div className="flex flex-col min-h-max">
-      {/* Navbar */}
-      <header ><Navbar/></header>
+    
+    {/* Navbar */}
+      <header ><ScrollToTop/><Navbar/></header>
 
       {/* Main content */}
       <main>
@@ -65,7 +51,7 @@ const App = () => {
       </Routes>
       </main>
       {/* Footer */}
-      <footer className="">
+      <footer>
         <Footer/>
       </footer>
     </div>

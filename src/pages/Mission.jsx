@@ -1,9 +1,18 @@
 import React from 'react'
+import OurProject from '../components/OurProject'
+import ImpactIoT from '../components/ImpactIOT'
 
 const Career = () => {
   return (
-    <div>Career</div>
+    <>
+      
+      <ImpactIoT/>
+      <OurProject/>
+    </>
   )
 }
 
 export default Career
+
+
+

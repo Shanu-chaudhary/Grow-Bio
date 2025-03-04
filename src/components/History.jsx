@@ -1,122 +1,97 @@
-import React from 'react'
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import gsap from 'gsap';
-import  { useRef } from 'react'
-import { useGSAP } from '@gsap/react';
+import React, { useRef, useEffect } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
+import img4 from '/assets/img4_11zon.webp';
 
-const History = () => {
+const OurHistory = () => {
+  const timelineRef = useRef();
+  const imageRef = useRef();
 
-  const gsapRef = useRef();
-  const paraRef = useRef();
-  useGSAP(() => {
-      const items = gsapRef.current.querySelectorAll("p");
-      const para = paraRef.current.querySelectorAll("p")
-      const images = document.querySelectorAll(".history img");
-      // const image2 = paraRef.current.querySelectorAll("img")
+  useEffect(() => {
+    const items = timelineRef.current.querySelectorAll(".timeline-item");
+    const image = imageRef.current;
 
-      gsap.from(items, {
-          y:200,
-          duration:1,
-          delay:0.3,
-          stagger:0.3,
-          // scrollTrigger:"#page2 #box"
-          scrollTrigger: {
-              trigger:"p",
-              scroller:"body",
-              // markers:true,
-              start:"top 90%",
-              end: "top 40%",
-          }
-      })
-      gsap.from(para, {
-          y:200,
-          duration:0.5,
-          delay:0.3,
-          stagger:0.2,
-          // scrollTrigger:"#page2 #box"
-          scrollTrigger: {
-              trigger:"p",
-              scroller:"body",
-              // markers:true,
-              start:"top 30%",
-              end: "top 40%",
-          }
-      })
-      // gsap.from(image1,{
-      //   scale:0,
-      //   duration:1,
-      //   delay:0.3,
-      //   scrollTrigger:{
-      //     trigger:"img",
-      //     scroller:"body",
-      //     markers:true,
-      //     start:"top 90%",
-      //     end: "top 40%",
-      //   }
-      // })
-      // gsap.from(image2,{
-      //   scale:0,
-      //   duration:1,
-      //   delay:0.3,
-      //   scrollTrigger: {
-      //     trigger:"img",
-      //     scroller:"body",
-      //     markers:true,
-      //     start:"end 10%",
-      //     end: "top 40%",
-      // }
-      // })
-      images.forEach((image) => {
-        gsap.from(image, {
-          scale: 0,
-          duration: 1,
-          delay: 0.3,
-          scrollTrigger: {
-            trigger: image, // Trigger animation for each image
-            scroller: "body",
-            // markers: true,
-            start: "top 90%",
-            end: "top 40%",
-          }
-        });
-      });
-  })
+    // Animation for timeline items
+    gsap.from(items, {
+      opacity: 0,
+      y: 70,
+      stagger: 0.3,
+      duration: 1,
+      scrollTrigger: {
+        trigger: timelineRef.current,
+        // markers:true,
+        start: "top 80%",
+        end: "bottom 40%",
+        scrub: true,
+      },
+    });
 
-
+    // Animation for image
+    gsap.from(image, {
+      scale: 0,
+      opacity: 0,
+      duration: 1.5,
+      ease: "power3.out",
+    });
+  }, []);
 
   return (
-    <>
-    <div className='md:mt-16 flex flex-col justify-center items-center history'>
-        <div className='md:text-6xl font-medium'>
-            <h1>Our History</h1>
-        </div>
-        <div ref={gsapRef} className='md:flex pr-10 mt-16 h-auto'>
-            <div  className='flex flex-col gap-5 h-auto w-3/4 p-12 text-xl'>
-              <p><b>Patel Agro Products & Services Pvt Ltd</b>, established on April 13th, 2022, by Mr. <i>Abhishek Patel</i>, is an innovative enterprise dedicated to revolutionizing the agricultural industry with a strong focus on organic products and fertilizers. Recognizing the detrimental effects of pesticides and harmful chemicals on both the environment and human health, Mr. Patel envisioned a transformative movement towards organic farming practices, driven by cutting-edge technologies such as Artificial Intelligence (AI), Machine Learning (ML), Robotics, and optimized Supply Chain management.</p>
-              <p>
-              With a firm commitment to sustainability and the well-being of both farmers and consumers, Patel Agro Products & Services has been at the forefront of pioneering organic solutions that enhance agricultural productivity while safeguarding the natural ecosystem. Leveraging state-of-the-art AI and ML algorithms, the company has developed advanced methodologies for precise soil analysis, crop monitoring, and pest management, ensuring optimal yields and minimizing environmental impact.
-              </p>
-              </div>
-            <div className='h-auto pr-14 flex justify-center items-center'>
-              <img className='h-52 w-auto' src="src/assets/logo.jpg" alt="history" />
-            </div>
-        </div>
-        <div ref={paraRef} className='md:flex mt-16 h-auto'>
-            <div className='h-auto pl-14 flex justify-center items-center'>
-              <img className='h-52 w-auto' src="src/assets/logo.jpg" alt="history" />
-            </div>
-            <div  className='flex flex-col gap-5 h-auto w-3/4 p-12 text-xl'>
-              <p>Through strategic partnerships and collaborations, Patel Agro Products & Services has successfully integrated robotics and automation into various stages of agricultural production, streamlining processes and reducing labor-intensive tasks. By embracing modern technologies, the company has enabled farmers to enhance productivity, reduce costs, and embrace sustainable practices that contribute to the overall health and vitality of our planet.</p>
-              <p>
-              Driven by a vision to create a nationwide organic revolution, Patel Agro Products & Services continues to invest in research and development, constantly striving to innovate and improve upon their product offerings. With a diverse range of organic fertilizers and eco-friendly solutions, the company empowers farmers across the country to cultivate nutritious, chemical-free crops, fostering a healthier and more sustainable future for generations to come.
-              </p>
-              </div>
+    <div className="bg-gradient-to-br lg:mt-10 mt:8 from-yellow-50 via-green-50 to-white py-16">
+      <div className=" mx-auto px-6 lg:px-16 flex flex-col lg:flex-row items-center gap-12">
+        {/* Timeline Section */}
+        <div
+          ref={timelineRef}
+          className="lg:pl-6 lg:w-1/2 flex flex-col  gap-6 timeline"
+        >
+          <h1 className="text-3xl lg:text-4xl font-bold text-dark-orange ">
+            Our History
+          </h1>
+          <p className="text-gray-700 text-lg font-Dmsans">
+            A journey of innovation and sustainable growth.
+          </p>
 
+          {/* Milestone Items */}
+          <div className="timeline-item">
+            <h3 className="text-xl font-semibold text-green-700">2010</h3>
+            <p className="text-gray-600 font-Dmsans">
+              Patel Agro was founded with the vision to revolutionize farming.
+            </p>
+          </div>
+          <div className="timeline-item">
+            <h3 className="text-xl font-semibold text-green-700">2015</h3>
+            <p className="text-gray-600 font-Dmsans">
+              Introduced our first line of organic fertilizers.
+            </p>
+          </div>
+          <div className="timeline-item">
+            <h3 className="text-xl font-semibold text-green-700">2020</h3>
+            <p className="text-gray-600 font-Dmsans">
+              Implemented robotics and automation for eco-friendly farming.
+            </p>
+          </div>
+          <div className="timeline-item">
+            <h3 className="text-xl font-semibold text-green-700">2023</h3>
+            <p className="text-gray-600 font-Dmsans">
+              Reached over 50,000 farmers with sustainable solutions.
+            </p>
+          </div>
         </div>
+
+        {/* Image Section */}
+        <div
+          ref={imageRef}
+          className="lg:w-1/2 h-auto flex justify-center items-center"
+        >
+          <img
+            src={img4}
+            alt="Our History"
+            className="rounded-lg shadow-lg w-3/4 h-auto"
+          />
+        </div>
+      </div>
     </div>
-    </>
-  )
-}
+  );
+};
 
-export default History
+export default OurHistory;

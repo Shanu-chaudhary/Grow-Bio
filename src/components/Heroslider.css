@@ -1,0 +1,4 @@
+/* Optional: Add smooth transitions for all slides */
+.slide {
+    transition: transform 0.7s ease-out, opacity 0.7s ease-out;
+}

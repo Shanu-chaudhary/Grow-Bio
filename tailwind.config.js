@@ -14,7 +14,12 @@ export default {
         'light-pink' : '#ffe9d4ff',
         'custom-white' : '#f3f5f5',
       },
+      fontFamily: {
+        montserrat: ["Montserrat", "sans-serif"],
+        Dmsans:["DM sans","sans-serif"],
+      },
     },
+
   },
   plugins: [],
 }

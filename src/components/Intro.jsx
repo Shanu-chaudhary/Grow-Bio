@@ -1,129 +1,121 @@
-import React from 'react'
+import React, { useRef, useEffect } from 'react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import gsap from 'gsap';
-import  { useRef } from 'react'
-import { useGSAP } from '@gsap/react';
+import img2 from '/assets/automation1.png'; 
+import img1 from '/assets/empower_farmer.jpg'; 
+
 gsap.registerPlugin(ScrollTrigger);
 
-
 const Intro = () => {
-    const gsapRef = useRef();
-    const paraRef = useRef();
-    useGSAP(() => {
-        const items = gsapRef.current.querySelectorAll("p");
-        const para = paraRef.current.querySelectorAll("p")
-        const images = document.querySelectorAll(".intro img");
-        // const image2 = paraRef.current.querySelectorAll("img")
-  
-        gsap.from(items, {
-            y:300,
-            duration:1,
-            opacity:0,
-            delay:0.9,
-            stagger:1,
-            // scrollTrigger:"#page2 #box"
-            scrollTrigger: {
-                trigger:"p",
-                scroller:"body",
-                // markers:true,
-                start:"top 20%",
-                end: "end -10%",
-                // scrub:true,
-            }
-        })
-        gsap.from(para, {
-            y:300,
-            duration:1,
-            delay:0.3,
-            stagger:0.3,
-            // scrollTrigger:"#page2 #box"
-            scrollTrigger: {
-                trigger:"p",
-                scroller:"body",
-                // markers:true,
-                start:"top -80%",
-                end: "end 60%",
-            }
-        })
-        // gsap.from(image1,{
-        //   scale:0,
-        //   duration:1,
-        //   delay:0.3,
-        //   scrollTrigger:{
-        //     trigger:"img",
-        //     scroller:"body",
-        //     markers:true,
-        //     start:"top 90%",
-        //     end: "top 40%",
-        //   }
-        // })
-        // gsap.from(image2,{
-        //   scale:0,
-        //   duration:1,
-        //   delay:0.3,
-        //   scrollTrigger: {
-        //     trigger:"img",
-        //     scroller:"body",
-        //     markers:true,
-        //     start:"end 10%",
-        //     end: "top 40%",
-        // }
-        // })
-        images.forEach((image) => {
-          gsap.from(image, {
-            scale: 0,
-            duration: 1,
-            delay: 0.3,
-            ease: "back.out",
-            scrollTrigger: {
-            trigger: image,
-            scroller: "body",
-            //   markers: true,
-            start: "top 90%",
-            end: "top 40%",
-            }
-          });
-        });
-    })
+  const introRef = useRef(null);
 
+  useEffect(() => {
+    const textBlocks = introRef.current.querySelectorAll('.text-block');
+    const images = introRef.current.querySelectorAll('.intro-img');
+
+    // Animate text sections
+    gsap.from(textBlocks, {
+      opacity: 0,
+      y: 100,
+      duration: 1,
+      stagger: 0.2,
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: textBlocks[0],
+        start: 'top 80%',
+        end: 'top 50%',
+        toggleActions: "play none none reverse",
+        scrub: false,
+      },
+    });
+
+    // Animate images
+    gsap.from(images, {
+      scale: 0.5,
+      opacity: 0,
+      duration: 1,
+      stagger: 0.3,
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: images[0],
+        start: 'top 90%',
+        end: 'top 50%',
+        toggleActions: "play none none reverse",
+        scrub: false,
+      },
+    });
+  }, []);
 
   return (
-    <>
-        <div className='intro bg-slate-50 pb-8 md:pt-9 flex flex-col justify-center items-center'>
-        <div className=' md:text-6xl text-green-800 font-medium'>
-            <h1>GROW BIO</h1>
+    <div
+      ref={introRef}
+      className="intro bg-gradient-to-b from-white to-green-100 py-12 md:py-16 px-4 md:px-32"
+    >
+      <div className="container mx-auto">
+        <h1 className="text-2xl tracking-normal lg:text-5xl font-bold text-dark-orange text-center mb-12 md:mb-16">
+          Empowering Sustainable Agriculture
+        </h1>
+        {/* Section 1 */}
+        <div className="md:flex items-center gap-12 mb-12 md:mb-16">
+          <div className="text-block md:w-1/2 text-gray-800">
+            <p className="text-sm font-Dmsans md:font-normal lg:text-lg md:leading-4  lg:leading-relaxed">
+              At Patel Agro Products & Services Pvt. Ltd., we empower farmers to
+              revolutionize agriculture with sustainable solutions. By
+              transforming livestock waste and agricultural by-products into
+              nutrient-rich fertilizers using cutting-edge technology, we help
+              reduce reliance on costly fertilizers, enhance soil health, and
+              boost yields.
+            </p>
+            <p className="mt-4 text-sm font-Dmsans md:font-normal md:leading-4 lg:text-lg leading-relaxed">
+              Our mission is to maximize farmers' profitability while promoting
+              eco-friendly practices. Partner with us to embrace sustainable
+              farming, improve productivity, and contribute to a greener future
+              for generations to come.
+            </p>
+          </div>
+          <div className="intro-img pt-6 md:pt-0  md:w-1/2 flex justify-center md:justify-end items-center">
+            <img
+              src={img1}
+              alt="Agriculture"
+              className="rounded-lg  shadow-xl h-2/5 w-4/5 "
+            />
+          </div>
         </div>
-        <div ref={gsapRef} className=' intro md:flex pr-10 mt-5 h-auto'>
-            <div  className=' overflow-hidden flex flex-col gap-5 h-auto w-3/4 p-12 pt-7 text-xl'>
-              <p className=''>At Patel Agro Products & Services Pvt. Ltd., we are dedicated to revolutionizing the agricultural landscape by empowering farmers and maximizing their income potential. Our mission is to reduce farmers' dependence on costly fertilizers (NPK) by offering innovative solutions that utilize livestock waste and agricultural by-products.Our cutting-edge technology and expertise empower farmers to convert these organic resources into nutrient-rich fertilizers, fostering sustainable farming practices and reducing environmental impact. Through our comprehensive services, we ensure that farmers can achieve increased yields, improved soil health, and reduced input costs, ultimately leading to a significant boost in their income.</p>
-              <p>
-              Join us in this transformative movement towards a more sustainable and profitable agriculture sector. Experience the benefits of producing your own fertilizer while contributing to a greener future. Explore our range of services and products designed to enhance your farm's productivity and profitability.At Patel Agro Products & Services Pvt. Ltd., we believe in the power of partnerships. Collaborate with us and embark on a journey of sustainable farming practices, increased profitability, and a brighter future for farmers worldwide.
-              Together, let's cultivate success and create a sustainable agricultural ecosystem for generations to come.
-              </p>
-              </div>
-            <div className='h-auto pr-14 flex justify-center items-center'>
-              <img className='h-52 w-auto' src="src/assets/logo.jpg" alt="history" />
-            </div>
+        {/* Section 2 */}
+        <div className="md:flex items-center gap-12 md:pt-10">
+          <div className="intro-img md:w-1/2  pb-6 flex justify-center md:justify-start items-center">
+            <img
+              src={img2}
+              alt="Technology in Agriculture"
+              className="rounded-lg shadow-xl h-2/5 w-4/5"
+            />
+          </div>
+          <div className="text-block md:w-1/2 text-gray-800">
+            <p className="text-sm font-Dmsans md:font-normal md:leading-4 lg:text-lg leading-relaxed">
+              Patel Agro Products & Services integrates robotics and automation
+              into agriculture, streamlining production and reducing labor
+              efforts. By adopting modern technologies, we empower farmers to
+              boost productivity, cut costs, and embrace eco-friendly practices
+              for a healthier planet.
+            </p>
+            <p className="mt-4 text-sm font-Dmsans md:font-normal md:leading-4 lg:text-lg leading-relaxed">
+              Committed to leading an organic revolution, we continuously
+              invest in research and innovation to deliver advanced organic
+              fertilizers and sustainable solutions. Our mission is to help
+              farmers grow chemical-free, nutritious crops, cultivating a
+              healthier and greener future for generations ahead.
+            </p>
+          </div>
         </div>
-        <div ref={paraRef} className='md:flex mt-11 h-auto'>
-            <div className='h-auto pl-14 flex justify-center items-center'>
-              <img className='h-52 w-auto' src="src/assets/logo.jpg" alt="history" />
-            </div>
-            <div  className='  overflow-hidden flex flex-col gap-5 h-auto w-3/4 p-12 pt-7 text-xl'>
-              <p>Through strategic partnerships and collaborations, Patel Agro Products & Services has successfully integrated robotics and automation into various stages of agricultural production, streamlining processes and reducing labor-intensive tasks. By embracing modern technologies, the company has enabled farmers to enhance productivity, reduce costs, and embrace sustainable practices that contribute to the overall health and vitality of our planet.</p>
-              <p>
-              Driven by a vision to create a nationwide organic revolution, Patel Agro Products & Services continues to invest in research and development, constantly striving to innovate and improve upon their product offerings. With a diverse range of organic fertilizers and eco-friendly solutions, the company empowers farmers across the country to cultivate nutritious, chemical-free crops, fostering a healthier and more sustainable future for generations to come.
-              </p>
-              </div>
+        <div className="text-center mt-10">
+          <button className="font-montserrat md:px-6 px-4 py-2 md:py-3 rounded-full text-white bg-green-600 hover:bg-green-700 transition-transform transform hover:scale-105">
+            <a href="/about">Know More</a>
+          </button>
         </div>
-        <div>
-            <button className='text-black px-5 py-3 rounded-full hover:scale-110 bg-custom-green hover:bg-green-600'>
-                Know More
-            </button>
-        </div>
-    </div>    
-    </>
-  )
-}
+      </div>
+    </div>
+  );
+};
 
-export default Intro
+export default Intro;
+

@@ -3,22 +3,29 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
 body {
   display: flex-column;
   align-items: center;
   height: 100%;
-  font-family: DM sans;
-  letter-spacing :1.5px;
-}
+} 
 
 h1 {
   font-family: "Sen";
   letter-spacing: -4px;
-  /* color: #387f39ff; */
-  /* color: #bf7222ff; */
-  color: rgb(22 101 52);
+  color: #bf7222ff;
 }
 
-p {
-  color: #666565;
+@layer base {
+  p {
+    @apply font-Dmsans font-light leading-[1.5];
+  }
 }
+
+/*p {
+  font-family:"Dmsans";
+  color: #666565;
+  /* font-weight: lighter; */
+  /* line-height: 1.5;
+} */

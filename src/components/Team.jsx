@@ -3,16 +3,16 @@ import React from 'react'
 const Team = () => {
   return (
     <>
-        <div className='mt-16'>
-          <div className='bg-slate-200'>
-            <div className='flex justify-center items-center pb-3 text-6xl'>
+        <div className=''>
+          <div className='bg-white pt-12 md:pt-6 overflow-hidden h-auto md:mb-4'>
+            <div className='flex justify-center items-center lg:pb-3 font-medium text-3xl md:text-4xl lg:text-6xl'>
               <h1>Meet our team members</h1>
             </div>
-            <div className='team-members pb-24 pt-12 gap-6 flex justify-center items-center '>
+            <div className='team-members pb-24 pt-12 gap-6 flex flex-col md:grid md:grid-cols-3 md:p-5 lg:flex lg:flex-row justify-center items-center '>
             <div className='h-[432px] w-[224px] team '>
               <div className='h-[224px] w-[224px] flex justify-center items-center'>
                 <div className=' h-[180px] w-[180px] rounded-full'>
-                  <img className=' rounded-full'  src="src/assets/abhishek.jpg" alt="" />
+                  <img className=' rounded-full'  src="assets/abhishek.jpg" alt="" />
                 </div>
               </div>
               <div className='flex flex-col gap-0 justify-center items-center pt-5'>
@@ -29,7 +29,7 @@ const Team = () => {
             <div className='h-[432px] w-[224px] team '>
               <div className='h-[224px] w-[224px] flex justify-center items-center'>
                 <div className=' h-[180px] w-[180px] object-cover flex justify-center items-center rounded-full'>
-                  <img className='rounded-full'  src="src/assets/andriyas.jpg" alt="" />
+                  <img className='rounded-full'  src="assets/andriyas.jpg" alt="" />
                 </div>
               </div>
               <div className='flex flex-col gap-0 justify-center items-center pt-5'>
@@ -46,7 +46,7 @@ const Team = () => {
             <div className='h-[432px] w-[224px] team '>
               <div className='h-[224px] w-[224px] flex justify-center items-center bg-red'>
                 <div className=' h-[180px] w-[180px] rounded-full'>
-                  <img className=' rounded-full'  src="src/assets/papaji.jpg" alt="" />
+                  <img className=' rounded-full'  src="assets/Papaji.jpg" alt="" />
                 </div>
               </div>
               <div className='flex flex-col gap-0 justify-center items-center pt-5'>
@@ -63,7 +63,7 @@ const Team = () => {
             <div className='h-[432px] w-[224px] team '>
               <div className='h-[224px] w-[224px] flex justify-center items-center bg-red'>
                 <div className=' h-[180px] w-[180px] rounded-full'>
-                  <img className=' rounded-full'  src="src/assets/Anuragsir.png" alt="" />
+                  <img className=' rounded-full'  src="assets/Anuragsir.png" alt="" />
                 </div>
               </div>
               <div className='flex flex-col gap-0 justify-center items-center pt-5'>
@@ -77,10 +77,10 @@ const Team = () => {
                 </div>
               </div>
             </div>
-            <div className='h-[432px] w-[224px] team '>
+            <div className='h-[432px] w-[224px] team md:mb-5 '>
               <div className='h-[224px] w-[224px] flex justify-center items-center bg-red'>
                 <div className=' h-[180px] w-[180px] rounded-full'>
-                  <img className=' rounded-full'  src="src/assets/Anirudra.jpg" alt="" />
+                  <img className=' rounded-full'  src="assets/Anirudra.jpg" alt="" />
                 </div>
               </div>
               <div className='flex flex-col gap-0 justify-center items-center pt-5'>
